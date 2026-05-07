@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo Cáo Kết Quả Học IELTS – Tháng 1/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f3d;
+    --gold: #c9a84c;
+    --gold-light: #f0d080;
+    --cream: #faf7f0;
+    --slate: #3a4a6b;
+    --muted: #8a96b0;
+    --border: #ddd5c0;
+    --red: #c0392b;
+    --green: #1e7e4a;
+    --page-w: 920px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #e8e2d8; min-height: 100vh; color: var(--navy); }
+
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; padding: 10px 24px;
+    box-shadow: 0 2px 16px rgba(0,0,0,.35); flex-wrap: wrap;
+  }
+  .nav-btn {
+    background: none; border: 1.5px solid rgba(255,255,255,.2);
+    color: rgba(255,255,255,.65); cursor: pointer;
+    padding: 5px 13px; border-radius: 20px;
+    font-family: 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 500;
+    transition: all .25s; white-space: nowrap;
+  }
+  .nav-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+  .nav-btn.active { background: var(--gold); border-color: var(--gold); color: var(--navy); font-weight: 700; }
+
+  .pages { padding-top: 64px; }
+  .page { display: none; min-height: calc(100vh - 64px); padding: 40px 24px 72px; animation: fadeUp .45s ease both; }
+  .page.active { display: block; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+  .inner { max-width: var(--page-w); margin: 0 auto; background: var(--cream); border-radius: 4px; box-shadow: 0 8px 40px rgba(15,31,61,.15), 0 2px 8px rgba(0,0,0,.08); overflow: hidden; }
+
+  .page-header { background: var(--navy); padding: 32px 40px 28px; position: relative; overflow: hidden; }
+  .page-header::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:rgba(201,168,76,.12); }
+  .page-header .kicker { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .page-header h1 { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#fff; line-height:1.25; }
+  .page-header h2 { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#fff; line-height:1.3; }
+  .page-header .sub { color:rgba(255,255,255,.55); font-size:13.5px; margin-top:6px; }
+
+  .page-body { padding: 36px 40px 40px; }
+
+  .welcome-hero { text-align:center; padding:56px 40px 24px; }
+  .welcome-emblem { width:80px; height:80px; background:var(--navy); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:24px; }
+  .welcome-emblem svg { width:38px; height:38px; }
+  .welcome-hero h1 { font-family:'Playfair Display',serif; font-size:32px; color:var(--navy); font-weight:900; margin-bottom:8px; }
+  .welcome-hero p { color:var(--muted); font-size:15px; line-height:1.6; }
+  .welcome-form { background:white; border:1.5px solid var(--border); border-radius:4px; padding:32px 36px; max-width:480px; margin:24px auto 56px; }
+  .welcome-form label { display:block; font-size:11.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .welcome-form input[type="text"] { width:100%; border:1.5px solid var(--border); border-radius:3px; padding:12px 16px; font-family:'DM Sans',sans-serif; font-size:16px; color:var(--navy); background:var(--cream); transition:border-color .2s; outline:none; }
+  .welcome-form input[type="text"]:focus { border-color:var(--gold); }
+  .welcome-form .hint { font-size:12.5px; color:var(--muted); margin-top:6px; }
+  .start-btn { display:block; width:100%; background:var(--navy); color:#fff; border:none; padding:14px; border-radius:3px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer; margin-top:20px; transition:background .2s,transform .1s; }
+  .start-btn:hover { background:var(--slate); transform:translateY(-1px); }
+
+  .section-badge { display:inline-flex; align-items:center; gap:8px; background:var(--navy); color:var(--gold); font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+  .section-badge.space-top { margin-top:28px; }
+
+  .info-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+  .info-table tr { border-bottom:1px solid var(--border); }
+  .info-table tr:last-child { border-bottom:none; }
+  .info-table td { padding:11px 0; font-size:14.5px; vertical-align:top; line-height:1.5; }
+  .info-table td:first-child { font-weight:600; color:var(--muted); width:240px; padding-right:16px; }
+  .info-table td:last-child { color:var(--navy); }
+
+  .score-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin:24px 0; }
+  .score-chip { background:white; border:1.5px solid var(--border); border-radius:4px; padding:16px 10px; text-align:center; }
+  .score-chip .skill { font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  .score-chip .val { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--navy); }
+  .score-chip.highlight { background:var(--navy); border-color:var(--navy); }
+  .score-chip.highlight .skill { color:var(--gold); }
+  .score-chip.highlight .val { color:#fff; }
+
+  .comment-box { background:white; border-left:4px solid var(--gold); border-radius:0 4px 4px 0; padding:16px 20px; font-size:14px; line-height:1.75; color:var(--slate); }
+  .comment-box p + p { margin-top:10px; }
+
+  .hw-section { margin-bottom:32px; }
+  .hw-section-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--navy); padding:10px 0; border-bottom:2px solid var(--navy); margin-bottom:0; }
+  .hw-table { width:100%; border-collapse:collapse; }
+  .hw-table thead tr { background:var(--navy); }
+  .hw-table thead th { color:var(--gold); font-size:11.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; padding:9px 14px; text-align:left; }
+  .hw-table thead th:last-child { text-align:right; }
+  .hw-table tbody tr { border-bottom:1px solid var(--border); transition:background .15s; }
+  .hw-table tbody tr:hover { background:rgba(201,168,76,.06); }
+  .hw-table tbody td { padding:9px 14px; font-size:13.5px; color:var(--navy); vertical-align:top; }
+  .hw-table tbody td:last-child { text-align:right; font-family:'DM Mono',monospace; font-size:13px; white-space:nowrap; }
+  .hw-table tbody td a { color:var(--slate); font-size:11.5px; word-break:break-all; }
+  .hw-table tbody td a:hover { color:var(--gold); }
+  .hw-table tfoot td { padding:10px 14px; font-weight:700; font-size:13.5px; background:var(--cream); border-top:2px solid var(--navy); }
+  .hw-table tfoot td:last-child { text-align:right; font-family:'DM Mono',monospace; }
+
+  .pct-100 { color:var(--green); }
+  .pct-good { color:#2e8b57; }
+  .pct-50  { color:#e67e22; }
+  .pct-0   { color:var(--red); }
+
+  .total-row { background:var(--navy) !important; border-bottom:none !important; }
+  .total-row td { color:#fff !important; font-weight:700 !important; }
+  .total-row td:last-child { color:var(--gold-light) !important; }
+  .drive-link { display:block; margin-top:4px; }
+
+  .essay-block { background:white; border:1.5px solid var(--border); border-radius:4px; padding:20px 24px; font-size:13.5px; line-height:1.85; color:var(--slate); margin-bottom:24px; }
+  .essay-block h4 { font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:10px; }
+  .essay-block .task-text { font-weight:500; color:var(--navy); font-style:italic; font-size:14px; }
+  .essay-block p + p { margin-top:10px; }
+
+  .teacher-note { color:#7c5c00; background:#fff8e1; border-radius:3px; padding:2px 6px; font-size:12.5px; font-style:italic; }
+
+  .src-bold { font-weight:700; color:var(--navy); }
+  .src-u { text-decoration:underline; text-decoration-color:var(--gold); text-decoration-thickness:1.5px; text-underline-offset:2px; }
+  .src-bu { font-weight:700; color:var(--navy); text-decoration:underline; text-decoration-color:var(--gold); text-decoration-thickness:1.5px; text-underline-offset:2px; }
+
+  .rubric-table { width:100%; border-collapse:collapse; margin-bottom:24px; }
+  .rubric-table thead tr { background:var(--navy); }
+  .rubric-table thead th { color:var(--gold); font-size:11.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; padding:10px 14px; text-align:left; }
+  .rubric-table tbody tr { border-bottom:1px solid var(--border); }
+  .rubric-table tbody tr:hover { background:rgba(201,168,76,.05); }
+  .rubric-table tbody td { padding:14px; font-size:13px; line-height:1.7; vertical-align:top; color:var(--navy); }
+  .rubric-table tbody td.band-score { text-align:center; font-family:'Playfair Display',serif; font-size:22px; font-weight:700; white-space:nowrap; color:var(--slate); }
+  .rubric-table tbody td .crit-vi { display:block; font-size:12px; color:var(--muted); font-weight:400; margin-top:2px; }
+  .rubric-table tbody td .descriptors { display:flex; flex-wrap:wrap; gap:4px 8px; margin-bottom:8px; font-size:11.5px; color:var(--muted); font-style:italic; }
+  .rubric-table tbody td .descriptors span { background:rgba(15,31,61,.05); padding:1px 8px; border-radius:10px; }
+  .rubric-table tfoot tr { background:var(--navy); }
+  .rubric-table tfoot td { padding:12px 14px; color:var(--gold-light); font-weight:700; font-size:14px; }
+  .rubric-table tfoot td.band-score { font-family:'Playfair Display',serif; font-size:26px; color:#fff; text-align:center; }
+
+  .improve-list { margin:0; padding-left:20px; }
+  .improve-list li { font-size:13.5px; line-height:1.7; color:var(--slate); margin-bottom:8px; }
+
+  .transcript-block { background:white; border:1.5px solid var(--border); border-radius:4px; padding:18px 22px; font-size:13px; line-height:1.85; color:var(--slate); margin-bottom:16px; }
+  .transcript-block .part-label { font-family:'DM Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); margin-bottom:6px; display:block; }
+  .transcript-block .question { font-weight:600; color:var(--navy); margin-bottom:6px; margin-top:12px; font-size:13.5px; }
+  .transcript-block .question:first-of-type { margin-top:0; }
+  .transcript-block .cuecard { margin:4px 0 8px 16px; padding-left:8px; border-left:2px solid var(--border); font-size:12.5px; color:var(--muted); }
+
+  .lang-toggle { display:inline-flex; border:1.5px solid var(--border); border-radius:4px; overflow:hidden; margin-bottom:16px; }
+  .lang-toggle button { background:white; border:none; cursor:pointer; padding:7px 16px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); transition:all .2s; }
+  .lang-toggle button.active { background:var(--navy); color:var(--gold); }
+  .lang-block.hidden { display:none; }
+
+  @media (max-width:600px) {
+    .page-body { padding:24px 20px 32px; }
+    .page-header { padding:24px 20px 20px; }
+    .score-grid { grid-template-columns:repeat(3,1fr); }
+    .info-table td:first-child { width:140px; }
+    .rubric-table thead th:nth-child(3), .rubric-table tbody td:nth-child(3) { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <button class="nav-btn active" onclick="goTo(0)">Học viên</button>
+  <button class="nav-btn" onclick="goTo(1)">1 · Tổng quan</button>
+  <button class="nav-btn" onclick="goTo(2)">2 · Bài tập</button>
+  <button class="nav-btn" onclick="goTo(3)">3.1 · Điểm thi</button>
+  <button class="nav-btn" onclick="goTo(4)">3.2 · Writing</button>
+  <button class="nav-btn" onclick="goTo(5)">3.3 · Speaking</button>
+</nav>
+
+<div class="pages">
+
+<!-- PAGE 0 -->
+<div class="page active" id="page-0">
+  <div class="inner">
+    <div class="welcome-hero">
+      <div class="welcome-emblem">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="14" r="6" stroke="#c9a84c" stroke-width="2"/>
+          <path d="M8 34c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <path d="M27 22l2.5 3.5L33 20" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>BÁO CÁO KẾT QUẢ HỌC IELTS THÁNG 1/2026</h1>
+      <p>Trung tâm Anh ngữ</p>
+    </div>
+    <div class="welcome-form">
+      <label for="student-name">Tên học viên</label>
+      <input type="text" id="student-name" placeholder="Nhập họ và tên của bạn…" value="Hải Đăng">
+      <div class="hint">Tên sẽ được hiển thị trong toàn bộ báo cáo.</div>
+      <button class="start-btn" onclick="startReport()">Xem Báo Cáo →</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 1 – GENERAL REPORT -->
+<div class="page" id="page-1">
+  <div class="inner">
+    <div class="page-header">
+      <div class="kicker">Section 1: General report</div>
+      <h1>BÁO CÁO KẾT QUẢ HỌC IELTS THÁNG 1/2026</h1>
+      <div class="sub">Học viên: <span id="name-s1">Hải Đăng</span></div>
+    </div>
+    <div class="page-body">
+      <div class="section-badge">Thông tin chung</div>
+      <table class="info-table">
+        <tbody>
+          <tr><td>Học viên</td><td id="name-s1b"><strong>Hải Đăng</strong></td></tr>
+          <tr><td>Theo học lớp</td><td>Bắt đầu học lớp IELTS thứ 3-5 từ 3/3</td></tr>
+          <tr><td>Kết quả chuyên cần</td><td>vắng 2</td></tr>
+          <tr><td>Mức độ chuyên cần</td><td><strong>71.4%</strong></td></tr>
+          <tr><td>Kết quả bài tập về nhà</td><td>Chưa hoàn thành 11 BTVN</td></tr>
+          <tr><td>Mức độ hoàn thành bài tập về nhà</td><td><strong>63.64%</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-badge space-top">Điểm thi thử</div>
+      <div class="score-grid">
+        <div class="score-chip"><div class="skill">Reading</div><div class="val">6.5</div></div>
+        <div class="score-chip"><div class="skill">Listening</div><div class="val">5.5</div></div>
+        <div class="score-chip"><div class="skill">Writing</div><div class="val">4.5</div></div>
+        <div class="score-chip"><div class="skill">Speaking</div><div class="val">5.0</div></div>
+        <div class="score-chip highlight"><div class="skill">IELTS</div><div class="val">5.5</div></div>
+      </div>
+
+      <div class="section-badge space-top">Nhận xét học viên</div>
+      <div class="comment-box">
+        <p>Học viên đi học chuyên cần và làm BTVN tương đối đầy đủ. Tuy nhiên, kĩ năng speaking và writing còn rất yếu. Phần nói, học viên chưa phản xạ được lưu loát. Phần viết, học viên còn yếu về tư duy triển khai, có thể do ảnh hưởng bởi lối suy nghĩ của tiếng Việt hoặc do chưa tiếp xúc nhiều với các chủ đề IELTS.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 – HOMEWORK COMPLETION -->
+<div class="page" id="page-2">
+  <div class="inner">
+    <div class="page-header">
+      <div class="kicker">Section 2: Homework completion</div>
+      <h2>Báo cáo mức độ hoàn thành bài tập về nhà lớp IELTS</h2>
+      <div class="sub">Học viên: <span id="name-s2">Hải Đăng</span></div>
+    </div>
+    <div class="page-body">
+
+      <!-- Phần 1 -->
+      <div class="hw-section">
+        <div class="hw-section-title">Phần 1: Bài tập từ vựng (vocabulary quiz)</div>
+        <table class="hw-table">
+          <thead><tr><th style="width:60px">STT</th><th>Tên bài tập</th><th style="width:140px">Mức độ hoàn thành</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Vocabulary quiz 24/2</td><td class="pct-0">0%</td></tr>
+            <tr><td>2</td><td>Vocabulary quiz 26/2</td><td class="pct-0">0%</td></tr>
+            <tr><td>3</td><td>Vocabulary quiz 3/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>4</td><td>Vocabulary quiz 5/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>5</td><td>Vocabulary quiz 10/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>6</td><td>Vocabulary quiz 12/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>7</td><td>Vocabulary quiz 17/3</td><td class="pct-0">0%</td></tr>
+            <tr><td>8</td><td>Vocabulary quiz 19/3</td><td class="pct-0">0%</td></tr>
+            <tr><td>9</td><td>Vocabulary quiz 24/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>10</td><td>Vocabulary quiz 26/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>11</td><td>Vocabulary quiz 31/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>12</td><td>Vocabulary quiz 2/4</td><td class="pct-0">0%</td></tr>
+            <tr><td>13</td><td>Vocabulary quiz 7/4</td><td class="pct-100">100%</td></tr>
+            <tr><td>14</td><td>Vocabulary quiz 9/4</td><td class="pct-0">0%</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Tổng phần 1</td><td class="pct-50">57.1%</td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Phần 2 -->
+      <div class="hw-section">
+        <div class="hw-section-title">Phần 2: Chuẩn bị bài mới</div>
+        <table class="hw-table">
+          <thead><tr><th style="width:60px">STT</th><th>Tên bài tập</th><th style="width:140px">Mức độ hoàn thành</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Chuẩn bị bài 3/3</td><td class="pct-0">0%</td></tr>
+            <tr><td>2</td><td>Chuẩn bị bài 5/3</td><td class="pct-0">0%</td></tr>
+            <tr><td>3</td><td>Chuẩn bị bài 10/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>4</td><td>Chuẩn bị bài 12/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>5</td><td>Chuẩn bị bài 19/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>6</td><td>Chuẩn bị bài 24/3</td><td class="pct-0">0%</td></tr>
+            <tr><td>7</td><td>Chuẩn bị bài 26/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>8</td><td>Chuẩn bị bài 31/3</td><td class="pct-100">100%</td></tr>
+            <tr><td>9</td><td>Chuẩn bị bài 2/4</td><td class="pct-100">100%</td></tr>
+            <tr><td>10</td><td>Chuẩn bị bài 9/4</td><td class="pct-0">0%</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Tổng phần 2</td><td class="pct-50">60%</td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Phần 3 -->
+      <div class="hw-section">
+        <div class="hw-section-title">Phần 3: Bài tập Reading</div>
+        <table class="hw-table">
+          <thead><tr><th style="width:60px">STT</th><th>Tên bài tập</th><th style="width:140px">Mức độ hoàn thành</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Reading P1: For all humankind</td><td class="pct-100">100%</td></tr>
+            <tr><td>2</td><td>Reading P1: An important language development</td><td class="pct-100">100%</td></tr>
+            <tr><td>3</td><td>Reading PS1: The history of the pencil</td><td class="pct-100">100%</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Tổng phần 3</td><td class="pct-100">100%</td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Phần 4 -->
+      <div class="hw-section">
+        <div class="hw-section-title">Phần 4: Bài tập Listening</div>
+        <table class="hw-table">
+          <thead><tr><th style="width:60px">STT</th><th>Tên bài tập</th><th style="width:140px">Mức độ hoàn thành</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Listening P1: Job details from employment agency</td><td class="pct-100">100%</td></tr>
+            <tr><td>2</td><td>Listening P4: Smartphone lecture</td><td class="pct-100">100%</td></tr>
+            <tr><td>3</td><td>Listening P2: Croft Valley Park</td><td class="pct-100">100%</td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Tổng phần 4</td><td class="pct-100">100%</td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Phần 5 -->
+      <div class="hw-section">
+        <div class="hw-section-title">Phần 5: Bài tập writing</div>
+        <table class="hw-table">
+          <thead><tr><th style="width:60px">STT</th><th>Tên bài tập</th><th style="width:140px">Mức độ hoàn thành</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Writing T2: Tourism to remote destinations</td><td class="pct-0">0%</td></tr>
+            <tr>
+              <td>2</td>
+              <td>Writing T2: Technology and relationships
+                <a class="drive-link" href="https://drive.google.com/file/d/1dgZ8_9-s0Vk8HXWHSrnPIEO9FPpQUnHf/view?usp=drive_link" target="_blank" rel="noopener">https://drive.google.com/file/d/1dgZ8_9-s0Vk8HXWHSrnPIEO9FPpQUnHf/view?usp=drive_link</a>
+              </td>
+              <td class="pct-50">50%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Writing T1: Emission sources
+                <a class="drive-link" href="https://drive.google.com/file/d/1xAlntygqiCTdKuF3G8B2HR7Pw4KfQ-q6/view?usp=drive_link" target="_blank" rel="noopener">https://drive.google.com/file/d/1xAlntygqiCTdKuF3G8B2HR7Pw4KfQ-q6/view?usp=drive_link</a>
+              </td>
+              <td class="pct-50">50%</td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Tổng phần 5</td><td class="pct-50">33.33%</td></tr></tfoot>
+        </table>
+      </div>
+
+      <table class="hw-table">
+        <tbody>
+          <tr class="total-row">
+            <td colspan="2" style="padding:13px 14px;font-size:15px;">Tổng cả khóa học</td>
+            <td style="text-align:right;padding:13px 14px;font-size:18px;">63.64%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3 – OVERALL SCORES -->
+<div class="page" id="page-3">
+  <div class="inner">
+    <div class="page-header">
+      <div class="kicker">Section 3.1: Overall scores</div>
+      <h2>Kết quả thi thử – Điểm tổng hợp</h2>
+      <div class="sub">Học viên: <span id="name-s3">Hải Đăng</span></div>
+    </div>
+    <div class="page-body">
+      <div class="section-badge">3.1. Overall scores</div>
+      <table class="info-table">
+        <tbody>
+          <tr><td>Điểm thi thử Reading</td><td><strong>6.5</strong></td></tr>
+          <tr><td>Điểm thi thử Listening</td><td><strong>5.5</strong></td></tr>
+          <tr><td>Điểm thi thử Writing</td><td><strong>4.5</strong></td></tr>
+          <tr><td>Điểm thi thử Speaking</td><td><strong>5.0</strong></td></tr>
+          <tr><td>Điểm thi thử IELTS</td><td><strong>5.5</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="score-grid">
+        <div class="score-chip"><div class="skill">Reading</div><div class="val">6.5</div></div>
+        <div class="score-chip"><div class="skill">Listening</div><div class="val">5.5</div></div>
+        <div class="score-chip"><div class="skill">Writing</div><div class="val">4.5</div></div>
+        <div class="score-chip"><div class="skill">Speaking</div><div class="val">5.0</div></div>
+        <div class="score-chip highlight"><div class="skill">IELTS</div><div class="val">5.5</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4 – WRITING FEEDBACK -->
+<div class="page" id="page-4">
+  <div class="inner">
+    <div class="page-header">
+      <div class="kicker">Section 3.2: Feedback for Writing</div>
+      <h2>Nhận xét bài Writing</h2>
+      <div class="sub">Học viên: <span id="name-s4">Hải Đăng</span> &nbsp;·&nbsp; Điểm ước tính: 4.5</div>
+    </div>
+    <div class="page-body">
+
+      <!-- Task -->
+      <div class="essay-block">
+        <h4>Task</h4>
+        <div class="task-text">Scientists agree that many people eat too much junk food and it is damaging their health. Some people think that this problem can be solved by education, while others believe that this education will not work. Discuss both views and give your opinion.</div>
+      </div>
+
+      <!-- Essay -->
+      <div class="essay-block">
+        <h4>Essay</h4>
+        <p>Many scientists <span class="src-bold">have agreement that</span> many individuals <span class="src-bold">is </span>addicted to fast food too much and that could be harmful for health. Many people believe that the reason can be solved by education. On the other hand, many individuals think that <span class="src-bold">the </span>education will not work. This passage will discuss<span class="src-bold"> both of views</span>.</p>
+
+        <p>Firstly, the problem could not be solved by education. Many people have this opinion because they believe that the differences in how people<span class="src-bold"> thinking</span>. In many countries, with the same similarity in education but some people get many diseases while others <span class="src-bold">choose to not consuming</span> too much fast food to protect their health. Also, another reason is many people choose <span class="src-bold">cosuming </span>too much like how they can reduce the stress. In many developed countries, with the good education standard, they still have a large number of people use junk food to <span class="src-bold">reduce the stressful feeling</span>. <span class="teacher-note">Triển khai ý trong đoạn này rất rối và khó hiểu. Giáo dục thất bại vì mỗi người suy nghĩ khác nhau là đúng, nhưng ví dụ "some people get many diseases while others choose not to consume too much fast food" chưa đủ thuyết phục để chứng minh giáo dục không hiệu quả. Cần tổ chức lại đoạn này xoay quanh một hoặc hai lý do hợp lý để giải thích vì sao giáo dục không thể thay đổi hành vi. Ví dụ: thói quen lâu năm rất khó thay đổi, hoặc lựa chọn thực phẩm phụ thuộc vào giá cả và thời gian hơn là kiến thức.</span></p>
+
+        <p>In contrast, many people believe that education could be a great solution for reducing junk food. Nowadays, many schools in the world are having <span class="src-bold">health checking</span> for <span class="src-bold">student </span>in many <span class="src-bold">occasion </span>in a year. Also, with checking health, schools can invite many <span class="src-bold">doctor </span>to teach about the unhealthy lifestyle of using too much fast food <span class="src-bold">that can help students have knowledge</span> to protect their health. For example, many countries in the world reduced <span class="src-bold">obisety</span><span class="src-bold"> </span>rate by teaching civilians soon in school. Also, with internet, governments can have many news or <span class="src-bold">video </span>to teach their civilians about the harmfulness of junk food with their health. With that, people can learn how to protect their health and have a good knowledge to deal with <span class="src-bold">disease </span>like obesity.</p>
+
+        <p>Overall, I think that <span class="src-bold">the </span>education can be a key to <span class="src-bold">solve </span>the<span class="src-bold"> junk food consuming problem</span>. Many fast food like snack or burger can be tasty but they need to <span class="src-bold">be consumed with a knowledge</span>, because it can <span class="src-bold">have harmfulness to people's health</span> if it is consumed too much.</p>
+      </div>
+
+      <!-- Lang toggle -->
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('w','vi')">Tiếng Việt</button>
+        <button onclick="setLang('w','en')">English</button>
+      </div>
+
+      <!-- Rubric VI -->
+      <div class="lang-block" id="w-vi">
+        <table class="rubric-table">
+          <thead><tr><th style="width:200px">Tiêu chí</th><th style="width:60px">Điểm</th><th>Nhận xét</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Task Response</strong><span class="crit-vi">(Đáp ứng đề)</span></td>
+              <td class="band-score">4–5</td>
+              <td>Bài viết đã đề cập đến cả hai quan điểm và có đưa ra ý kiến cá nhân trong phần kết luận, đáp ứng yêu cầu cơ bản. Tuy nhiên, phần phát triển của đoạn "giáo dục không hiệu quả" còn rối. Lập luận mở đầu cho rằng giáo dục thất bại vì mỗi người suy nghĩ khác nhau, nhưng ví dụ "some people get many diseases while others choose not to consume too much fast food" lại không chứng minh được điều này. Ý về giảm căng thẳng là phù hợp nhưng chưa được phát triển rõ. Đoạn "giáo dục có thể hiệu quả" mạch lạc hơn, với các ví dụ hợp lý như kiểm tra sức khỏe ở trường, thăm khám bác sĩ và các chiến dịch của chính phủ. Tuy nhiên, quan điểm cá nhân dù đã được nêu vẫn chưa được triển khai rõ ràng, còn mờ nhạt. Nhìn chung, bài đã trả lời được yêu cầu cơ bản của đề nhưng chưa đầy đủ. Học viên nên đọc bài của Bình (đạt 6.5 ở tiêu chí Task Response) để tham khảo cách phát triển ý phù hợp.</td>
+            </tr>
+            <tr>
+              <td><strong>Coherence &amp; Cohesion</strong><span class="crit-vi">(Liên kết và mạch lạc)</span></td>
+              <td class="band-score">5</td>
+              <td>Có cấu trúc bốn đoạn rõ ràng gồm mở bài, hai đoạn thân bài và kết luận, và mạch phát triển tổng thể từ một phía sang phía còn lại nhìn chung là hợp lý. Các từ nối được sử dụng xuyên suốt như "Firstly," "Also," "In contrast," "For example," "With that," "Overall" giúp tạo cảm giác có tổ chức. Tuy nhiên, vẫn có một số vấn đề làm hạn chế band điểm. Trong đoạn BD1, mối liên kết logic giữa các câu còn yếu; người đọc phải tự suy ra mối quan hệ giữa các ý thay vì được diễn đạt rõ ràng. Câu "In many countries, with the same similarity in education but some people get many diseases" không có liên kết rõ với câu chủ đề. Cụm "This passage will discuss both of views" trong mở bài mang tính công thức và không đóng góp gì cho tính liên kết và mạch lạc. Ở đoạn thân bài thứ hai, "Also" được dùng lặp lại quá gần nhau, tạo cảm giác máy móc. Có thể thay một trong hai bằng "Furthermore" hoặc "Moreover" để đa dạng hơn. Cụm "With that" cũng khá mơ hồ; "As a result" hoặc "Consequently" sẽ giúp liên kết ý chính xác hơn. Bài có chia đoạn và nhìn chung có mục đích rõ ràng, nhưng lập luận trung tâm của đoạn thân bài thứ nhất chưa thật rõ với người đọc, làm giảm tính mạch lạc tổng thể. Những đặc điểm này phù hợp với mức Band 5.</td>
+            </tr>
+            <tr>
+              <td><strong>Lexical resource</strong><span class="crit-vi">(Từ vựng và diễn đạt)</span></td>
+              <td class="band-score">5</td>
+              <td>Có sử dụng từ vựng đa dạng như "harmfulness," "unhealthy lifestyle," "obesity rate," "civilians," "stressful feeling", nhưng phạm vi còn hạn chế và nhiều cách dùng chưa chính xác hoặc bị lặp lại. Một số lỗi tiêu biểu gồm: "Many scientists have agreement" → "many scientists agree"; "addicted to fast food too much" (cách diễn đạt chưa tự nhiên → "consuming too much junk food"); "reduce the stressful feeling" (cách diễn đạt chưa tự nhiên); "with the same similarity" ("similarity" đã bao hàm "giống nhau"); "not consuming / consuming" bị lặp lại nhiều lần; "obisety" → "obesity" (sai chính tả); "health checking" (phải là "health checks / check-ups"); "deal with disease like obesity" → "address health issues such as obesity"; "junk food consuming problem" (cách diễn đạt chưa tự nhiên); "with checking health" → "alongside health check-ups"; "be consumed with a knowledge" (cách diễn đạt chưa tự nhiên); "have harmfulness to people's health" → "cause harm to people's health". Từ "consuming" xuất hiện quá nhiều lần, làm giảm sự linh hoạt trong từ vựng. Mức độ lặp này phù hợp với Band 5.</td>
+            </tr>
+            <tr>
+              <td><strong>Grammatical range &amp; accuracy</strong><span class="crit-vi">(Ngữ pháp)</span></td>
+              <td class="band-score">4–5</td>
+              <td>Có sự kết hợp giữa câu đơn và câu phức, và một số cấu trúc được xử lý khá ổn: "with the good education standard, they still have a large number of people" cho thấy có dùng cấu trúc phức. Tuy nhiên, lỗi vẫn xuất hiện đủ nhiều để gây khó khăn nhất định. Các vấn đề chính gồm: "many individuals is addicted" → "are addicted" (lỗi hòa hợp chủ ngữ - động từ); "in how people thinking" → "in how people think"; dạng của động từ: "choose to not consuming", "choose cosuming"; danh từ số nhiều: "for student," "invite many doctor", "video", "disease"; cấu trúc mệnh đề quan hệ không tự nhiên: "that can help students have knowledge"; "This passage will discuss both of views" → "both views". Dấu câu nhìn chung ổn. Tuy nhiên, độ chính xác của các cấu trúc phức còn thiếu ổn định, phù hợp với mức Band 5.</td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td><strong>Overall estimated band (tổng điểm)</strong></td><td class="band-score">4.5</td><td></td></tr></tfoot>
+        </table>
+
+        <div class="section-badge">Các điểm cần cải thiện chính</div>
+        <ul class="improve-list">
+          <li>Tổ chức lại đoạn thân bài thứ nhất: Xây dựng đoạn BD1 xoay quanh 1–2 lý do rõ ràng giải thích vì sao chỉ riêng giáo dục không thể thay đổi hành vi, ví dụ: thói quen lâu năm khó thay đổi, hoặc lựa chọn thực phẩm bị chi phối bởi giá cả và thời gian hơn là kiến thức.</li>
+          <li>Đa dạng hóa từ nối: Tránh lặp lại "Also", thay bằng "Furthermore" hoặc "Moreover".</li>
+          <li>Sửa lỗi hòa hợp chủ ngữ - động từ. Luyện các mẫu cơ bản: "many people are," "education does not work," "it depends".</li>
+          <li>Kiểm tra chính tả trước khi nộp. Đặc biệt với các từ: "consuming," "obesity," "occasions".</li>
+          <li>Học lại collocation theo chủ đề.</li>
+        </ul>
+      </div>
+
+      <!-- Rubric EN -->
+      <div class="lang-block hidden" id="w-en">
+        <table class="rubric-table">
+          <thead><tr><th style="width:200px">Criterion</th><th style="width:60px">Score</th><th>Comment</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Task Response</strong></td>
+              <td class="band-score">4–5</td>
+              <td>Both views are present and a personal opinion is given in the conclusion, satisfying the basic structural requirements. However, the development of the "education cannot work" paragraph is muddled. The argument opens with the claim that education fails because people think differently, but then illustrates this with "some people get many diseases while others choose not to consume too much fast food", which does not logically demonstrate that education is ineffective. The stress-relief point is relevant but undeveloped. The "education can work" paragraph is more coherent, raising school health checks, doctor visits, and government campaigns as credible examples. The personal opinion is stated but not defended. The conclusion simply restates the topic rather than explaining why education is the key. Overall, the task is addressed but only incompletely, with uneven development between the two sides.</td>
+            </tr>
+            <tr>
+              <td><strong>Coherence &amp; Cohesion</strong></td>
+              <td class="band-score">5</td>
+              <td>There is a clear four-paragraph structure: introduction, two body paragraphs, and a conclusion, and the overall progression from one side to the other is broadly logical. Discourse markers are used throughout: "Firstly," "Also," "In contrast," "For example," "With that," and "Overall" all contribute to a sense of organisation. However, several issues limit the score. Within the first body paragraph, the logical connection between sentences is weak. The relationship between ideas has to be inferred rather than being made explicit. "In many countries, with the same similarity in education but some people get many diseases" lacks a clear connective link to the topic sentence. "This passage will discuss both of views" in the introduction is a formulaic filler that contributes nothing to cohesion. In the second body paragraph, "Also" is used twice in close succession, which creates a mechanical feel. Substituting one with "Furthermore" or "Moreover" would improve cohesive variety. "With that" as a connector is somewhat vague. "As a result" or "Consequently" would link ideas more precisely. Paragraphing is present and broadly purposeful, but the central argument within the first body paragraph is not always clear to the reader, which limits overall coherence. These features are consistent with Band 5.</td>
+            </tr>
+            <tr>
+              <td><strong>Lexical resource</strong></td>
+              <td class="band-score">5</td>
+              <td>There is some attempt at varied vocabulary: "harmfulness," "unhealthy lifestyle," "obesity rate," "civilians," "stressful feeling", but the range is limited and several word choices are inaccurate or repetitive. "Many scientists have agreement" (should be "many scientists agree"), "addicted to fast food too much" (awkward: "consuming too much junk food"), "with the same similarity" (redundant: "similarity" already implies sameness), "not consuming / consuming" repeated many times, "obisety" (obesity — misspelled), "deal with disease like obesity" (should be "address health issues such as obesity"), "with checking health" (awkward: "alongside health check-ups"). The word "consuming" appears many times. This repetition is consistent with Band 5.</td>
+            </tr>
+            <tr>
+              <td><strong>Grammatical range &amp; accuracy</strong></td>
+              <td class="band-score">4–5</td>
+              <td>There is a mix of simple and complex sentences, and some structures are handled okay: "with the good education standard, they still have a large number of people" shows an attempt at complex construction, and "schools can invite many doctors to teach about the unhealthy lifestyle" is largely correct. However, errors are frequent enough to cause some difficulty. Key issues include: "many individuals is addicted" (subject-verb agreement: "are addicted"), "in how people thinking" (should be "in how people think"), plural nouns ("for student," "invite many doctor"), and "This passage will discuss both of views" (should be "both views"). Punctuation is generally adequate. The level of accuracy on complex structures is inconsistent, matching Band 5.</td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td><strong>Overall estimated band</strong></td><td class="band-score">4.5</td><td></td></tr></tfoot>
+        </table>
+
+        <div class="section-badge">Key areas to improve</div>
+        <ul class="improve-list">
+          <li>Restructure the first body paragraph around one or two clear, logical reasons why education alone cannot change behaviour. For example, that deep-rooted habits are hard to break, or that food choices are driven by affordability and time rather than knowledge. Remove the self-contradictory sentence about people choosing not to eat junk food, as it undermines the argument.</li>
+          <li>Replace repeated "Also" with varied connectors such as "Furthermore" or "Moreover."</li>
+          <li>Fix the recurring subject-verb agreement pattern. Practise: "many people are," "education does not work," "it depends."</li>
+          <li>Spell-check "consuming," "obesity," and "occasions" before submitting.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5 – SPEAKING FEEDBACK -->
+<div class="page" id="page-5">
+  <div class="inner">
+    <div class="page-header">
+      <div class="kicker">Section 3.3: Feedback for speaking</div>
+      <h2>Nhận xét bài Speaking – Đăng</h2>
+      <div class="sub">Học viên: <span id="name-s5">Hải Đăng</span> &nbsp;·&nbsp; Điểm ước tính: 5.0</div>
+    </div>
+    <div class="page-body">
+
+      <div class="section-badge">Transcript</div>
+
+      <!-- Part 1 -->
+      <div class="transcript-block">
+        <span class="part-label">Part 1</span>
+
+        <div class="question">Do you have any hobbies?</div>
+        <p>Yes, <span class="src-u">uh</span> I have a hobby that is <span class="src-u">uh</span> collecting football cards <span class="src-u">uh</span> and <span class="src-u">I do that hobbies, I do that hobby</span> with my friends. <span class="src-u">Uh, we, we </span><span class="src-bu">sometime </span><span class="src-u">buys, we </span><span class="src-bu">sometime </span><span class="src-u">buys, we </span><span class="src-bu">sometime </span><span class="src-u">buy uh</span> football cards in <span class="src-u">uh </span>many <span class="src-bold">shop </span><span class="src-u">uh </span><span class="src-bold">in Sunday</span> and <span class="src-u">uh we will, we will uh, we will</span> swap the <span class="src-bold">card </span><span class="src-u">uh</span> together if <span class="src-u">uh</span> me or my friends <span class="src-u">uh</span> have that card before. And <span class="src-u">uh</span> I think that hobby can<span class="src-bold"> connect me with my friends </span><span class="src-bu">uh</span><span class="src-bold"> too much</span>. So <span class="src-u">uh</span> I think that is a good hobby.</p>
+
+        <div class="question">Do you often go to public places with your friends?</div>
+        <p><span class="src-u">Uh, Yes. Uh uh,</span> me and my friends <span class="src-u">uh</span> go to many public <span class="src-bold">place </span><span class="src-u">like uh, like a park, uh</span> the square. <span class="src-u">Uh</span>, we will go to<span class="src-bold"> there public place</span> <span class="src-u">uh</span> <span class="src-u">when we, when we were, when we are</span><span class="src-bold"> in the holiday</span> <span class="src-u">or the, or,</span><span class="src-bu"> in the</span><span class="src-bold"> weekend </span>(mispronounced). We will <span class="src-bold">go to </span><span class="src-bu">uh</span><span class="src-bold">, there</span> to talk about <span class="src-u">uh</span> the life or <span class="src-bold">about the subject in our school</span>. It can help me reduce the stress <span class="src-u">uh</span> after the school time.</p>
+
+        <div class="question">Do you have a mobile phone? What do you use your mobile phone for?</div>
+        <p><span class="src-u">Uh</span>, yes, I have a mobile (<span class="src-u">mispronounced</span>) phone. <span class="src-u">Uh</span>, it is an iPhone of Apple and <span class="src-u">uh</span> I use that for chatting with my friends, <span class="src-u">uh</span>, doing homework and playing games. <span class="teacher-note">Liệt kê ý đơn thuần, không triển khai gì.</span></p>
+      </div>
+
+      <!-- Part 2 -->
+      <div class="transcript-block">
+        <span class="part-label">Part 2</span>
+        <div class="question">Describe a movie you watched and enjoyed recently</div>
+        <div class="cuecard">
+          When and where you watched it<br>
+          Who you watched it with<br>
+          What it was about<br>
+          And explain why you watched this movie
+        </div>
+        <p><span class="src-u">So, uh, the, a</span> movie that I watched <span class="src-u">(mispronounced) </span>and enjoyed <span class="src-u">(mispronounced) </span>recently uh <span class="src-u">was, was uh</span> the Vietnamese horror film.<span class="src-u"> That name is, that name is </span>Rừng Thế Mạng and <span class="src-u">uh I watched (mispronounced), and I watched (mispronounced) it uh</span> in 2024 <span class="src-u">in the, in a</span> website on the internet. <span class="src-u">Uh</span>, me and my friends <span class="src-u">uh</span> watched <span class="src-u">(mispronounced)</span> it <span class="src-u">uh</span> together when we join to Discord and share the video screening. <span class="src-u">Uh, the, that movie is about the, that movie is about</span> a person <span class="src-u">that have, that had the, that had the travel to, </span><span class="src-bu">had the traveling</span><span class="src-bold"> to</span> the mountainous city, and <span class="src-u">uh he met many uh, he met many</span> horror entity in that place and <span class="src-u">uh</span> at the end of that film <span class="src-u">uh he was, he was</span> dead. <span class="src-u">Uh</span>, <span class="src-u">but </span><span class="src-bu">the film have</span><span class="src-u"> uh, but the film have many uh, have many uh</span> <span class="src-bold">reason </span>to <span class="src-u">uh</span> <span class="src-bold">make me watch it</span>. <span class="src-u">Like my friends uh, like my friends</span> watched it before and <span class="src-u">uh</span> they <span class="src-bold">suggested to me to watch that film</span>. And <span class="src-u">uh</span>, the rapper Đen Vâu<span class="src-u"> uh had uh, had</span> a song <span class="src-u">in the, in the</span> description of <span class="src-u">uh</span> that film. <span class="teacher-note">Lý do vì sao thích bộ phim này vẫn chưa sâu sắc, chỉ vì bạn xem và giới thiệu nên thích xem? Cốt truyện hay như thế nào? Nhân vật hay như thế nào? Không thấy nói.</span></p>
+      </div>
+
+      <!-- Part 3 -->
+      <div class="transcript-block">
+        <span class="part-label">Part 3</span>
+
+        <div class="question">What kinds of movies do you think are successful in your country?</div>
+        <p>Um, I think that is the comedy <span class="src-u">uh </span>films <span class="src-u">uh </span>because <span class="src-u">uh </span>with <span class="src-u">a Vietnamese, uh as a Vietnamese</span> person, <span class="src-u">uh me and my, me and my friends uh, me and my friends</span> came to <span class="src-u">uh</span> many cinema <span class="src-u">uh</span> to watch many <span class="src-bold">movie </span>that <span class="src-u">uh</span> <span class="src-bold">have </span><span class="src-bu">uh</span><span class="src-bold"> comedy in that</span>. And in <span class="src-bold">many Tet holiday</span>, <span class="src-u">uh</span> many <span class="src-u">uh</span> comedy films <span class="src-u">uh was being produced, uh was produced</span> and <span class="src-u">uh</span> the people choose to <span class="src-bold">watch that</span> with family. <span class="teacher-note">Tại sao phim hài nổi tiếng được nhiều người yêu thích? Chưa trả lời được.</span></p>
+
+        <div class="question">What are the factors that make a successful movie?</div>
+        <p>I think that is <span class="src-u">uh</span> the community <span class="src-u">in the, in that countries, in that country</span>. Like uh, if <span class="src-bold">that movie have a genres </span><span class="src-bu">of uh of the, of the, of the</span><span class="src-bold"> people in the country</span> <span class="src-u">they produce, they produce</span> that movie. <span class="src-u">Like uh</span>, the films can be <span class="src-u">uh</span> successful because <span class="src-u">uh</span> many people like to <span class="src-u">uh</span>, will choose it to watch and maybe they can <span class="src-u">uh</span> suggest that to <span class="src-u">uh</span> many people like <span class="src-u">uh</span> their family or friends. <span class="teacher-note">Ý tưởng chưa sâu sắc. Điều làm nên thành công của bộ phim phải là nhiều yếu tố cấu thành nên bộ phim như cốt truyện, nhân vật, diễn viên, …</span></p>
+      </div>
+
+      <!-- Lang toggle -->
+      <div class="lang-toggle" style="margin-top:24px">
+        <button class="active" onclick="setLang('s','vi')">Tiếng Việt</button>
+        <button onclick="setLang('s','en')">English</button>
+      </div>
+
+      <!-- Rubric VI -->
+      <div class="lang-block" id="s-vi">
+        <table class="rubric-table">
+          <thead><tr><th style="width:200px">Tiêu chí</th><th style="width:60px">Điểm</th><th>Nhận xét</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Fluency &amp; coherence</strong><span class="crit-vi">(Tính lưu loát và mạch lạc)</span></td>
+              <td class="band-score">4</td>
+              <td>
+                <div class="descriptors"><span>giữ được mạch nói</span><span>lặp lại và tự sửa nhiều</span><span>phụ thuộc "uh"</span><span>phát triển ý còn nông</span></div>
+                Học viên nhìn chung vẫn giữ được mạch nói nhưng còn lặp lại và tự sửa rất nhiều (ví dụ: 'we sometime buys, we sometime buys, we sometime buy'). Các câu trả lời đều bám đúng chủ đề. Tuy nhiên, vẫn phụ thuộc khá nhiều vào các từ đệm như 'uh' và các từ nối rất cơ bản như 'and', 'like', 'so'. Câu trả lời Part 1 về điện thoại di động chỉ mang tính liệt kê đơn giản, chưa có phát triển ý. Ở Part 2 phần giải thích vẫn chưa sâu sắc. Part 3 gần như chỉ nói được trên bề mặt, không giải thích được gì cả.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Lexical resource</strong><span class="crit-vi">(Từ vựng và diễn đạt)</span></td>
+              <td class="band-score">5</td>
+              <td>
+                <div class="descriptors"><span>xử lý được chủ đề quen thuộc</span><span>một số từ vựng theo chủ đề</span><span>chưa tự nhiên hay thành ngữ</span><span>yếu ở câu hỏi trừu tượng</span></div>
+                Học viên xử lý khá ổn các chủ đề quen thuộc như sở thích, xem phim, điện thoại di động. Có sử dụng một số từ vựng đúng chủ đề như 'swap', 'genres', 'mountainous city', 'video screening'. Tuy nhiên, khả năng dùng từ vẫn còn hạn chế và chưa có ngôn ngữ tự nhiên hay mang tính thành ngữ. Ở Part 3, vốn từ rất hạn chế khi phải trả lời các câu hỏi mang tính trừu tượng hơn. Một số cách diễn đạt còn gượng hoặc sai: 'connect me with my friends uh too much', 'go to there public place', 'go to there', 'talk about the subject in our school', 'had the traveling to', 'the reason to make me watch it', 'The movie have comedy in that', 'if that movie have a genres of uh of the, of the, of the people in the country' (không rõ ý). Một số lỗi làm ảnh hưởng trực tiếp đến việc hiểu ý.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Grammatical range &amp; accuracy</strong><span class="crit-vi">(Ngữ pháp)</span></td>
+              <td class="band-score">5</td>
+              <td>
+                <div class="descriptors"><span>câu đơn khá chính xác</span><span>lỗi hòa hợp chủ-vị</span><span>lỗi thì và số nhiều</span><span>mệnh đề phụ thường sai</span></div>
+                Các cấu trúc câu cơ bản nhìn chung được dùng khá chính xác ở những câu đơn. Tuy nhiên, vẫn có nhiều lỗi về chia động từ theo chủ ngữ ('we sometime buys', 'the film have'), dùng thì và danh từ số nhiều. Học viên có dùng câu có mệnh đề phụ, nhưng nhiều câu bị sai cấu trúc. Lỗi khá nhiều.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pronunciation</strong><span class="crit-vi">(Phát âm)</span></td>
+              <td class="band-score">5</td>
+              <td>
+                <div class="descriptors"><span>nhìn chung có thể hiểu được</span><span>lỗi lặp lại ở một số từ</span><span>chưa ảnh hưởng nghiêm trọng</span></div>
+                Phát âm nhìn chung vẫn có thể hiểu được. Có lỗi phát âm lặp lại ở những từ như 'watched', 'enjoyed', 'weekend', và 'mobile'. Nhìn chung, việc giao tiếp chưa bị ảnh hưởng nghiêm trọng, nhưng lỗi thường xuyên xuất hiện nên rất dễ nhận ra.
+              </td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td><strong>Overall estimated band (tổng điểm)</strong></td><td class="band-score">5.0</td><td></td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Rubric EN -->
+      <div class="lang-block hidden" id="s-en">
+        <table class="rubric-table">
+          <thead><tr><th style="width:200px">Criterion</th><th style="width:60px">Score</th><th>Comment</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Fluency &amp; coherence</strong></td>
+              <td class="band-score">4</td>
+              <td>
+                <div class="descriptors"><span>maintains flow</span><span>repetition &amp; self-correction</span><span>over-relies on "uh"</span><span>development stays shallow</span></div>
+                Maintains the flow of speech across most responses using repetition and self-correction to keep going ("we sometime buys, we sometime buys, we sometime buy"). Answers stay on topic throughout — a clear improvement over Band 4. Over-relies on "uh" and basic connectives ("and", "like", "so"). The Part 1 mobile phone answer is a bare list with no development. Some coherence loss in Part 3 where ideas don't fully connect.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Lexical resource</strong></td>
+              <td class="band-score">5</td>
+              <td>
+                <div class="descriptors"><span>familiar topics handled adequately</span><span>some topic vocab</span><span>limited flexibility</span><span>thin for abstract questions</span></div>
+                Handles familiar topics adequately — football cards, cinema, mobile phones. Some reasonable topic vocabulary ("swap", "horror entity", "genres", "mountainous city", "video screening"). Limited flexibility and no idiomatic language. Part 3 vocabulary is thin for an abstract question. Some wording is unnatural and contains errors: 'connect me with my friends uh too much', 'go to there public place', 'go to there', 'talk about the subject in our school', 'had the traveling to', 'the reason to make me watch it', 'suggest to me to watch that film', 'The movie have comedy in that', 'if that movie have a genres of uh of the, of the, of the people in the country' (unintelligible). Some of these errors impede understanding.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Grammatical range &amp; accuracy</strong></td>
+              <td class="band-score">5</td>
+              <td>
+                <div class="descriptors"><span>basic clauses reasonable</span><span>subject-verb agreement errors</span><span>tense &amp; plural noun errors</span><span>subordinate structures often malformed</span></div>
+                Basic sentence forms produced with reasonable accuracy in simple clauses. Recurring errors in subject-verb agreement ("we sometime buys", "the film have"), tense control ("when we were... when we are"), and plural noun (shops, cards, places, movies). Subordinate structures are attempted but often malformed. Errors are frequent though rarely cause full comprehension failure.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pronunciation</strong></td>
+              <td class="band-score">4</td>
+              <td>
+                <div class="descriptors"><span>generally intelligible</span><span>consistent mispronunciations</span><span>listener effort required</span></div>
+                Generally intelligible with some listener effort required. Consistent mispronunciation of "watched", "enjoyed", "weekend", and "mobile". Overall, communication is not significantly impeded but errors are frequent enough to notice.
+              </td>
+            </tr>
+          </tbody>
+          <tfoot><tr><td><strong>Overall estimated band</strong></td><td class="band-score">4.5</td><td></td></tr></tfoot>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div><!-- /pages -->
+
+<script>
+  function goTo(idx) {
+    document.querySelectorAll('.page').forEach((p,i) => p.classList.toggle('active', i===idx));
+    document.querySelectorAll('.nav-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function startReport() {
+    const name = document.getElementById('student-name').value.trim() || 'Học viên';
+    ['name-s1','name-s1b','name-s2','name-s3','name-s4','name-s5'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = name;
+    });
+    goTo(1);
+  }
+  function setLang(prefix, lang) {
+    const vi = document.getElementById(prefix+'-vi');
+    const en = document.getElementById(prefix+'-en');
+    vi.classList.toggle('hidden', lang!=='vi');
+    en.classList.toggle('hidden', lang!=='en');
+    const toggle = vi.previousElementSibling;
+    if (toggle && toggle.classList.contains('lang-toggle')) {
+      toggle.querySelectorAll('button').forEach((b,i) => {
+        b.classList.toggle('active', (i===0&&lang==='vi')||(i===1&&lang==='en'));
+      });
+    }
+  }
+  document.getElementById('student-name').addEventListener('keydown', e => { if(e.key==='Enter') startReport(); });
+</script>
+</body>
+</html>
